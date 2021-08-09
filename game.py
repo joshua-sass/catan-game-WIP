@@ -4,4 +4,4 @@ class game:
 		self.difficulty = difficulty
 
 	def initiliaze(self):
-		
+		pass		
