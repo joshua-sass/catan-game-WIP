@@ -8,13 +8,13 @@ class game:
 		self.player_count = player_count
 		self.difficulty = difficulty
 
-		new_board = board()
-		new_deck = deck()
-		new_dice = dice()
-		new_board.draw_board()
+		self.new_board = board()
+		self.new_deck = deck()
+		self.new_dice = dice()
+		self.new_board.draw_board()
 
-		ai_players = []
-		human = player()
+		self.ai_players = []
+		self.human = player()
 
-		while len(ai_players) < (int(player_count) - 1):
-			ai_players.append(player())
+		while len(self.ai_players) < (int(self.player_count) - 1):
+			self.ai_players.append(player())
