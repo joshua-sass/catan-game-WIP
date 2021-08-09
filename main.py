@@ -1,13 +1,14 @@
 #imports here
 from game import game
-from board import board
+#from board import board
 #from tile import tile
-#from piece import piece
+#from pieces import pieces
 #from deck import deck
+#from dice import dice
 
 if __name__ == "__main__":
 	difficulties = ["easy", "medium", "hard"]
-	MAX_PLAYERS = 5
+	MAX_PLAYERS = 4
 	numbers_of_players = [player for player in range(1+1, MAX_PLAYERS+1)]
 	print("MAKE LOGO HERE")
 	#draw main screen
@@ -38,4 +39,3 @@ if __name__ == "__main__":
 
 	#create game object and begin
 	new_game = game(players, diff)
-	new_game.initiliaze()

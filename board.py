@@ -1,6 +1,10 @@
+from tile import tile
+
 class board:
-	def __init__:
-		pass
+	def __init__(self):
+		tile_numbers = [tile for tile in range(0,20)]
+		for tile in tile_numbers:
+			pass
 		#determine tiles and values here!
 
 	def draw_board(self):
