@@ -1,6 +1,7 @@
 class board:
 	def __init__:
 		pass
+		#determine tiles and values here!
 
 	def draw_board(self):
 		pass

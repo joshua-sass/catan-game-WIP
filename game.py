@@ -4,4 +4,5 @@ class game:
 		self.difficulty = difficulty
 
 	def initiliaze(self):
-		pass		
+		new_board = board()
+		new_board.draw_board()		
