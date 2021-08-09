@@ -8,6 +8,12 @@ class board:
 		#determine tiles and values here!
 
 	def draw_board(self):
+		#d = desert
+		#w = wood
+		#r = rock
+		#g = grain
+		#s = sheep
+		#b = brick
 		pass
 
 	def generate_board(self):

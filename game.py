@@ -1,7 +1,7 @@
-from board import board
-from pieces import pieces
-from deck import deck
-from dice import dice
+from board  import board
+from deck   import deck
+from dice   import dice
+from player import player
 
 class game:
 	def __init__(self, player_count, difficulty):
@@ -9,7 +9,12 @@ class game:
 		self.difficulty = difficulty
 
 		new_board = board()
-		new_pieces = pieces()
 		new_deck = deck()
 		new_dice = dice()
-		new_board.draw_board()				
+		new_board.draw_board()
+
+		ai_players = []
+		human = player()
+
+		while len(ai_players) < (int(player_count) - 1):
+			ai_players.append(player())
