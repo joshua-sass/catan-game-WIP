@@ -11,10 +11,15 @@ class game:
 		self.new_board = board()
 		self.new_deck = deck()
 		self.new_dice = dice()
-		self.new_board.draw_board()
+		#self.new_board.draw_board()
 
 		self.ai_players = []
-		self.human = player()
+		self.human = player(int(self.player_count))
 
+		iterate = 0
 		while len(self.ai_players) < (int(self.player_count) - 1):
-			self.ai_players.append(player())
+			self.ai_players.append(player(iterate))
+			iterate += 1
+
+	def roll_dice(self):
+		return self.new_dice.roll()
