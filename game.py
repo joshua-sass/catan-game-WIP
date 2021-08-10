@@ -23,3 +23,12 @@ class game:
 
 	def roll_dice(self):
 		return self.new_dice.roll()
+
+	def game_go(self):
+		pass
+
+	def player_turn(self):
+		pass
+
+	def ai_turn(self):
+		pass

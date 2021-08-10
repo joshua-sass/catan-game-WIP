@@ -9,12 +9,7 @@ class board:
 		self.harbors = []
 		self.tiles = []
 		self.connections = []
-		#d = desert
-		#w = wood
-		#r = rock
-		#g = grain
-		#s = sheep
-		#b = brick
+
 		self.initiate_connections()
 		self.draw_board()
 
@@ -62,20 +57,26 @@ class board:
 		moving_chits.remove(moving_chits[temp])
 
 		for iterator in range(0, 3):
+			#d = desert
+			#w = wood
+			#r = rock
+			#g = grain
+			#s = sheep
+			#b = brick
 
-			self.tiles.append(tuple(["g", grain_values[iterator]]))
-			self.tiles.append(tuple(["w", wood_values[iterator]]))
-			self.tiles.append(tuple(["s", pasture_values[iterator]]))
-			self.tiles.append(tuple(["r", rock_values[iterator]]))
-			self.tiles.append(tuple(["b", brick_values[iterator]]))
+			self.tiles.append(tuple(["g", str(grain_values[iterator])]))
+			self.tiles.append(tuple(["w", str(wood_values[iterator])]))
+			self.tiles.append(tuple(["s", str(pasture_values[iterator])]))
+			self.tiles.append(tuple(["r", str(rock_values[iterator])]))
+			self.tiles.append(tuple(["b", str(brick_values[iterator])]))
 
 		for chit in range(0,1):
 
-			self.tiles.append(tuple(["g", grain_values[3]]))
-			self.tiles.append(tuple(["w", wood_values[3]]))
-			self.tiles.append(tuple(["s", pasture_values[3]]))
+			self.tiles.append(tuple(["g", str(grain_values[3])]))
+			self.tiles.append(tuple(["w", str(wood_values[3])]))
+			self.tiles.append(tuple(["s", str(pasture_values[3])]))
 
-		self.tiles.sort()
+		numpy.random.shuffle(self.tiles)
 
 	def generate_harbor_values(self):
 		harbor_vals = ["s", "?", "?", "b", "?", "w", "g", "?", "r"]
@@ -160,15 +161,50 @@ class board:
 
 		self.connections.extend(moving_conn)
 
+	def default_board_draw(self):
+		print("_________________________________________________________________________________________________________________________")
+		print("|                                                                                                                        |")
+		print("|                                          /\\    /\\    /\\                                                                |")
+		print("|                                         /  \\  /  \\  /  \\                                                               |")
+		print("|                                        /(1) \\/(2) \\/(3) \\                                                              |")
+		print("|                                        | " +self.tiles[0][0]+self.tiles[0][1].zfill(2)+ "|| " +self.tiles[1][0]+self.tiles[1][1].zfill(2)+ "|| " +self.tiles[2][0]+self.tiles[2][1].zfill(2)+ "|                                                              |")
+		print("|                                       /\\    /\\    /\\    /\\                                                             |")
+		print("|                                      /  \\  /  \\  /  \\  /  \\                                                            |")
+		print("|                                     /(4) \\/(5) \\/(6) \\/(7) \\                                                           |")
+		print("|                                     | " +self.tiles[3][0]+self.tiles[3][1].zfill(2)+ "|| " +self.tiles[4][0]+self.tiles[4][1].zfill(2)+ "|| " +self.tiles[5][0]+self.tiles[5][1].zfill(2)+ "|| " +self.tiles[6][0]+self.tiles[6][1].zfill(2)+ "|                                                           |")
+		print("|                                    /\\    /\\    /\\    /\\    /\\                                                          |")
+		print("|                                   /  \\  /  \\  /  \\  /  \\  /  \\                                                         |")
+		print("|                                  /(8) \\/(9) \\/(10)\\/(11)\\/(12)\\                                                        |")
+		print("|                                  | " +self.tiles[7][0]+self.tiles[7][1].zfill(2)+ "|| " +self.tiles[8][0]+self.tiles[8][1].zfill(2)+ "|| " +self.tiles[9][0]+self.tiles[9][1].zfill(2)+ "|| " +self.tiles[10][0]+self.tiles[10][1].zfill(2)+ "|| " +self.tiles[11][0]+self.tiles[11][1].zfill(2)+ "|                                                        |")
+		print("|                                  \\    /\\    /\\    /\\    /\\    /                                                        |")
+		print("|                                   \\  /  \\  /  \\  /  \\  /  \\  /                                                         |")
+		print("|                                    \\/(13)\\/(14)\\/(15)\\/(16)\\/                                                          |")
+		print("|                                     | " +self.tiles[12][0]+self.tiles[12][1].zfill(2)+ "|| " +self.tiles[13][0]+self.tiles[13][1].zfill(2)+ "|| " +self.tiles[14][0]+self.tiles[14][1].zfill(2)+ "|| " +self.tiles[15][0]+self.tiles[15][1].zfill(2)+ "|                                                           |")
+		print("|                                     \\    /\\    /\\    /\\    /                                                           |")
+		print("|                                      \\  /  \\  /  \\  /  \\  /                                                            |")
+		print("|                                       \\/(17)\\/(18)\\/(19)\\/                                                             |")
+		print("|                                        | " +self.tiles[16][0]+self.tiles[16][1].zfill(2)+ "|| " +self.tiles[17][0]+self.tiles[17][1].zfill(2)+ "|| " +self.tiles[18][0]+self.tiles[18][1].zfill(2)+ "|                                                              |")
+		print("|                                        \\    /\\    /\\    /                                                              |")
+		print("|                                         \\  /  \\  /  \\  /                                                               |")
+		print("|                                          \\/    \\/    \\/                                                                |")
+		print("|                                                                                                                        |")
+		print("|                                                                                                                        |")
+		print("|                                                                                                                        |")
+		print("|                                                                                                                        |")
+		print("|                                                                                                                        |")
+		print("|                                                                                                                        |")
+		print("|                                                                                                                        |")																														
+		print("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾")
+
 	def generate_board(self):
 
 		self.tiles = []
-		desert_tile = tuple(["d", 0])
+		desert_tile = tuple(["d", "0"])
 		self.tiles.append(desert_tile)
 
 		self.generate_chit_values()
-		print(self.tiles)
-
 		self.generate_harbor_values()
-		print(self.harbors)
 		#numeric system so tiles can be stored in an array (tile #x is always in y location)
+
+		self.default_board_draw()
+		#time to draw the board in console
