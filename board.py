@@ -18,7 +18,6 @@ class board:
 		self.initiate_connections()
 		self.draw_board()
 
-
 	def generate_chit_values(self): #(tuning these values) #potentially revisit this section to make code cleaner
 		grain_values = []
 		wood_values = []
