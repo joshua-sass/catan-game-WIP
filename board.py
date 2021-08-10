@@ -10,6 +10,8 @@ class board:
 		self.tiles = []
 		self.connections = []
 
+		self.board_string_by_line = []
+
 		self.initiate_connections()
 		self.draw_board()
 
@@ -162,49 +164,54 @@ class board:
 		self.connections.extend(moving_conn)
 
 	def default_board_draw(self):
-		print("_________________________________________________________________________________________________________________________")
-		print("|                                                                                                                        |")
-		print("|                                          /\\    /\\    /\\                                                                |")
-		print("|                                         /  \\  /  \\  /  \\                                                               |")
-		print("|                                        /(1) \\/(2) \\/(3) \\                                                              |")
-		print("|                                        | " +self.tiles[0][0]+self.tiles[0][1].zfill(2)+ "|| " +self.tiles[1][0]+self.tiles[1][1].zfill(2)+ "|| " +self.tiles[2][0]+self.tiles[2][1].zfill(2)+ "|                                                              |")
-		print("|                                       /\\    /\\    /\\    /\\                                                             |")
-		print("|                                      /  \\  /  \\  /  \\  /  \\                                                            |")
-		print("|                                     /(4) \\/(5) \\/(6) \\/(7) \\                                                           |")
-		print("|                                     | " +self.tiles[3][0]+self.tiles[3][1].zfill(2)+ "|| " +self.tiles[4][0]+self.tiles[4][1].zfill(2)+ "|| " +self.tiles[5][0]+self.tiles[5][1].zfill(2)+ "|| " +self.tiles[6][0]+self.tiles[6][1].zfill(2)+ "|                                                           |")
-		print("|                                    /\\    /\\    /\\    /\\    /\\                                                          |")
-		print("|                                   /  \\  /  \\  /  \\  /  \\  /  \\                                                         |")
-		print("|                                  /(8) \\/(9) \\/(10)\\/(11)\\/(12)\\                                                        |")
-		print("|                                  | " +self.tiles[7][0]+self.tiles[7][1].zfill(2)+ "|| " +self.tiles[8][0]+self.tiles[8][1].zfill(2)+ "|| " +self.tiles[9][0]+self.tiles[9][1].zfill(2)+ "|| " +self.tiles[10][0]+self.tiles[10][1].zfill(2)+ "|| " +self.tiles[11][0]+self.tiles[11][1].zfill(2)+ "|                                                        |")
-		print("|                                  \\    /\\    /\\    /\\    /\\    /                                                        |")
-		print("|                                   \\  /  \\  /  \\  /  \\  /  \\  /                                                         |")
-		print("|                                    \\/(13)\\/(14)\\/(15)\\/(16)\\/                                                          |")
-		print("|                                     | " +self.tiles[12][0]+self.tiles[12][1].zfill(2)+ "|| " +self.tiles[13][0]+self.tiles[13][1].zfill(2)+ "|| " +self.tiles[14][0]+self.tiles[14][1].zfill(2)+ "|| " +self.tiles[15][0]+self.tiles[15][1].zfill(2)+ "|                                                           |")
-		print("|                                     \\    /\\    /\\    /\\    /                                                           |")
-		print("|                                      \\  /  \\  /  \\  /  \\  /                                                            |")
-		print("|                                       \\/(17)\\/(18)\\/(19)\\/                                                             |")
-		print("|                                        | " +self.tiles[16][0]+self.tiles[16][1].zfill(2)+ "|| " +self.tiles[17][0]+self.tiles[17][1].zfill(2)+ "|| " +self.tiles[18][0]+self.tiles[18][1].zfill(2)+ "|                                                              |")
-		print("|                                        \\    /\\    /\\    /                                                              |")
-		print("|                                         \\  /  \\  /  \\  /                                                               |")
-		print("|                                          \\/    \\/    \\/                                                                |")
-		print("|                                                                                                                        |")
-		print("|                                                                                                                        |")
-		print("|                                                                                                                        |")
-		print("|                                                                                                                        |")
-		print("|                                                                                                                        |")
-		print("|                                                                                                                        |")
-		print("|                                                                                                                        |")																														
-		print("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾")
+		temp = []
+		temp.append("_________________________________________________________________________________________________________________________")
+		temp.append("|                                                                                                                        |")
+		temp.append("|                                          /\\    /\\    /\\                                                                |")
+		temp.append("|                                         /  \\  /  \\  /  \\                                                               |")
+		temp.append("|                                        /(1) \\/(2) \\/(3) \\                                                              |")
+		temp.append("|                                        | " +self.tiles[0][0]+self.tiles[0][1].zfill(2)+ "|| " +self.tiles[1][0]+self.tiles[1][1].zfill(2)+ "|| " +self.tiles[2][0]+self.tiles[2][1].zfill(2)+ "|                                                              |")
+		temp.append("|                                       /\\    /\\    /\\    /\\                                                             |")
+		temp.append("|                                      /  \\  /  \\  /  \\  /  \\                                                            |")
+		temp.append("|                                     /(4) \\/(5) \\/(6) \\/(7) \\                                                           |")
+		temp.append("|                                     | " +self.tiles[3][0]+self.tiles[3][1].zfill(2)+ "|| " +self.tiles[4][0]+self.tiles[4][1].zfill(2)+ "|| " +self.tiles[5][0]+self.tiles[5][1].zfill(2)+ "|| " +self.tiles[6][0]+self.tiles[6][1].zfill(2)+ "|                                                           |")
+		temp.append("|                                    /\\    /\\    /\\    /\\    /\\                                                          |")
+		temp.append("|                                   /  \\  /  \\  /  \\  /  \\  /  \\                                                         |")
+		temp.append("|                                  /(8) \\/(9) \\/(10)\\/(11)\\/(12)\\                                                        |")
+		temp.append("|                                  | " +self.tiles[7][0]+self.tiles[7][1].zfill(2)+ "|| " +self.tiles[8][0]+self.tiles[8][1].zfill(2)+ "|| " +self.tiles[9][0]+self.tiles[9][1].zfill(2)+ "|| " +self.tiles[10][0]+self.tiles[10][1].zfill(2)+ "|| " +self.tiles[11][0]+self.tiles[11][1].zfill(2)+ "|                                                        |")
+		temp.append("|                                  \\    /\\    /\\    /\\    /\\    /                                                        |")
+		temp.append("|                                   \\  /  \\  /  \\  /  \\  /  \\  /                                                         |")
+		temp.append("|                                    \\/(13)\\/(14)\\/(15)\\/(16)\\/                                                          |")
+		temp.append("|                                     | " +self.tiles[12][0]+self.tiles[12][1].zfill(2)+ "|| " +self.tiles[13][0]+self.tiles[13][1].zfill(2)+ "|| " +self.tiles[14][0]+self.tiles[14][1].zfill(2)+ "|| " +self.tiles[15][0]+self.tiles[15][1].zfill(2)+ "|                                                           |")
+		temp.append("|                                     \\    /\\    /\\    /\\    /                                                           |")
+		temp.append("|                                      \\  /  \\  /  \\  /  \\  /                                                            |")
+		temp.append("|                                       \\/(17)\\/(18)\\/(19)\\/                                                             |")
+		temp.append("|                                        | " +self.tiles[16][0]+self.tiles[16][1].zfill(2)+ "|| " +self.tiles[17][0]+self.tiles[17][1].zfill(2)+ "|| " +self.tiles[18][0]+self.tiles[18][1].zfill(2)+ "|                                                              |")
+		temp.append("|                                        \\    /\\    /\\    /                                                              |")
+		temp.append("|                                         \\  /  \\  /  \\  /                                                               |")
+		temp.append("|                                          \\/    \\/    \\/                                                                |")
+		temp.append("|                                                                                                                        |")
+		temp.append("|     Tiles have their number put in ()s. The resource given is represented by the char followed by the number required  |")
+		temp.append("|     to be rolled. For example, w06 represents wood when rolling 6. To claim a spot for building, represent them with   |")
+		temp.append("|     a space. For example, city 1 2 5, would represent the building of a city at the triangulation of tile 1,2 and 5.   |")
+		temp.append("|     For tiles with only two neighbors, those two tile numbers are sufficient so city 1 2. When only one neighbor is    |")
+		temp.append("|     present, cardinal directions will be used, so for example city 3 NE.                                               |")
+		temp.append("|                                                                                                                        |")																														
+		temp.append("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾")
+
+		return temp		
 
 	def generate_board(self):
 
 		self.tiles = []
-		desert_tile = tuple(["d", "0"])
+		desert_tile = tuple(["d", "7"])
 		self.tiles.append(desert_tile)
 
 		self.generate_chit_values()
 		self.generate_harbor_values()
 		#numeric system so tiles can be stored in an array (tile #x is always in y location)
 
-		self.default_board_draw()
+		self.board_string_by_line = self.default_board_draw()
+		for line in self.board_string_by_line:
+			print(line)
 		#time to draw the board in console

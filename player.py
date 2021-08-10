@@ -3,13 +3,15 @@ from pieces import pieces
 class player:
 	def __init__(self, id):
 		self.new_pieces = pieces()
-		self.get_points()
 
 	def place_piece(self, connection):
 		pass
 
 	def replace_piece(self, connection):
 		pass
+
+	def get_card_number(self):
+		pass	
 
 	def get_points(self):
 		points_moving = self.new_pieces.player_pieces
